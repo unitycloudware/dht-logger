@@ -33,7 +33,7 @@ public class TestDataUtils {
     public static final String PROJECT_DESC = "Data logger for DHTx sensors";
     public static final String DEVICE_NAME = "adafruit-feather-m0-wifi";
     public static final String DEVICE_DESC = "This is a test device.";
-    public static final String DATA_STREAM_NAME = "ucw-dhtloger";
+    public static final String DATA_STREAM_NAME = "ucw-dhtlogger";
     public static final String DATA_STREAM_DESC = "Temperature and humidity data collected from DHTx sensors.";
 
     public ProjectManager getProjectManager() {
