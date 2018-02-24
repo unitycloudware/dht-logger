@@ -1,0 +1,2 @@
+# Internal configuration file for dht-logger
+ucw.dhtlogger.version=${build.number}

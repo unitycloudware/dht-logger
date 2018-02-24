@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<nsys-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugin-version="1">
+
+    <!-- Plugin Info -->
+
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${build.number}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+    </plugin-info>
+
+    <!-- Plugin Modules -->
+
+    <management-agent key="ucw-dhtlogger" name="UCW DHT Logger"
+                      class="com.unitycloudware.portal.tutorial.dhtlogger.plugin.DHTLoggerPlugin">
+        <dependency>org.nsys.daemon:scheduler</dependency>
+    </management-agent>
+
+    <!-- Main Navigation [BEGIN] -->
+
+    <navigation-section key="ucw-dhtlogger_nav-main_dhtlogger" name="UCW DHT Logger"
+                        location="system.top.navigation.bar/ucw.dhtlogger" weight="1000">
+        <label>DHT Logger</label>
+        <description>UCW DHT Logger</description>
+    </navigation-section>
+
+    <navigation-item key="ucw-dhtlogger_nav-main_dashboard" name="UCW DHT Logger Dashboard"
+                     section="system.top.navigation.bar/ucw.dhtlogger" weight="0">
+        <label>UCW DHT Logger</label>
+        <link>/dashboard/view/ucw-dhtlogger</link>
+        <conditions>
+            <condition class="org.nsys.portal.conditions.UserIsLoggedInCondition" />
+        </conditions>
+    </navigation-item>
+
+    <!-- Main Navigation [END] -->
+
+    <!-- Navigation 'ucw.dhtlogger.dashboard.header.actions' [BEGIN] -->
+
+    <navigation-section key="ucw-dhtlogger_dashboard-header-actions" name="UCW DHT Logger Dashboard Header Actions"
+                        location="ucw.dhtlogger.dashboard.header.actions" weight="0">
+        <label>Dashboard Header Actions</label>
+    </navigation-section>
+
+    <navigation-item key="ucw-dhtlogger_dashboard-header-actions_dashboard" name="UCW DHT Logger Dashboard"
+                     section="ucw.dhtlogger.dashboard.header.actions" weight="0">
+        <label>Dashboard</label>
+        <link>/dashboard/view/ucw-dhtlogger</link>
+    </navigation-item>
+
+    <!-- Navigation 'ucw.dhtlogger.dashboard.header.actions' [END] -->
+
+    <!-- Dashboard Gadgets [BEGIN] -->
+
+    <dashboard key="ucw-dhtlogger_dashboard" name="UCW DHT Logger Dashboard">
+        <description>This dashboard displays temperature and humidity data collected from DHTx sensors.</description>
+        <label>DHT Logger</label>
+        <viewId>ucw-dhtlogger</viewId>
+        <imageUri>${portalResourcesUrl}/resources/images/ucw_logo.png</imageUri>
+        <actionButtons>ucw.dhtlogger.dashboard.header.actions</actionButtons>
+    </dashboard>
+
+    <dashboard-gadget key="ucw-dhtlogger_temperature-data-gadget" name="Temperature Data Gadget"
+                      class="com.unitycloudware.portal.tutorial.dhtlogger.gadget.TemperatureDataGadget">
+        <description>Displays temperature data from DHTx sensors.</description>
+        <label>Temperature Measurement</label>
+        <column>left</column>
+        <order>0</order>
+        <view>ucw-dhtlogger</view>
+    </dashboard-gadget>
+
+    <dashboard-gadget key="ucw-dhtlogger_humidity-data-gadget" name="Humidity Data Gadget"
+                      class="com.unitycloudware.portal.tutorial.dhtlogger.gadget.HumidityDataGadget">
+        <description>Displays humidity data from DHTx sensors.</description>
+        <label>Humidity Measurement</label>
+        <column>right</column>
+        <order>0</order>
+        <view>ucw-dhtlogger</view>
+    </dashboard-gadget>
+
+    <dashboard-gadget key="ucw-dhtlogger_logger-scheme-gadget" name="Logger Scheme Gadget"
+                      class="com.unitycloudware.portal.tutorial.dhtlogger.gadget.LoggerSchemeGadget">
+        <description>Displays DHT logger scheme.</description>
+        <label>DHT22 logger scheme</label>
+        <column>left</column>
+        <order>0</order>
+        <view>ucw-dhtlogger</view>
+    </dashboard-gadget>
+
+    <!-- Dashboard Gadgets [END] -->
+
+</nsys-plugin>
