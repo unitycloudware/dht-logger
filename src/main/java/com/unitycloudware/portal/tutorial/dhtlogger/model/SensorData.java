@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SensorData {
     private double temperature;
-    private int humidity;
+    private double humidity;
     private long timestamp;
 
     public double getTemperature() {
@@ -25,11 +25,11 @@ public class SensorData {
         this.temperature = temperature;
     }
 
-    public int getHumidity() {
+    public double getHumidity() {
         return humidity;
     }
 
-    public void setHumidity(int humidity) {
+    public void setHumidity(double humidity) {
         this.humidity = humidity;
     }
 
@@ -50,7 +50,7 @@ public class SensorData {
                 '}';
     }
 
-    public static SensorData create(final double temperature, final int humidity, final long timestamp) {
+    public static SensorData create(final double temperature, final double humidity, final long timestamp) {
         SensorData sensorData = new SensorData();
         sensorData.setTemperature(temperature);
         sensorData.setHumidity(humidity);

@@ -92,8 +92,14 @@ public class TemperatureDataGadget extends AbstractGadget {
 
             DataMessage dataMessage = (DataMessage) item.getData();
 
-            // Transform JSON payload to DataItem object
-            data.add(JsonUtils.fromJson(dataMessage.getData(), SensorData.class));
+            // Transform JSON payload to SensorData object
+            SensorData sensorData = JsonUtils.fromJson(dataMessage.getData(), SensorData.class);
+
+            if (sensorData.getTimestamp() == 0) {
+                sensorData.setTimestamp(dataMessage.getTimestamp());
+            }
+
+            data.add(sensorData);
         }
 
         return data;

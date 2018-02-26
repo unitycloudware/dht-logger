@@ -77,7 +77,7 @@ public class SensorDataGeneratorJob extends AbstractJob {
         }
 
         SensorData data = SensorData.create(
-                RandomRange.getRandomDouble(0, 100), RandomRange.getRandomInt(0, 100), TimeUtils.getNow().getTime());
+                RandomRange.getRandomDouble(0, 100), RandomRange.getRandomDouble(0, 100), TimeUtils.getNow().getTime());
 
         String payload = JsonUtils.toJson(data);
 
