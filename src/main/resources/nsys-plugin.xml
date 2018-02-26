@@ -78,6 +78,15 @@
         <order>0</order>
         <view>ucw-dhtlogger</view>
     </dashboard-gadget>
+	
+	<dashboard-gadget key="ucw-dhtlogger_temp-humidity-data-gadget" name="Temperature and Humidity Data Gadget"
+                      class="com.unitycloudware.portal.tutorial.dhtlogger.gadget.TemperatureHumidityGadget">
+        <description>Displays humidity data from DHTx sensors.</description>
+        <label>Temperature and Humidity Measurement</label>
+        <column>right</column>
+        <order>0</order>
+        <view>ucw-dhtlogger</view>
+    </dashboard-gadget>
 
     <dashboard-gadget key="ucw-dhtlogger_logger-scheme-gadget" name="Logger Scheme Gadget"
                       class="com.unitycloudware.portal.tutorial.dhtlogger.gadget.LoggerSchemeGadget">
