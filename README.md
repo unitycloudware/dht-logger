@@ -20,6 +20,14 @@ The DHT Logger is an example how to implement a data logger for DHTx sensors for
  * Use default user "admin" and password "admin" to login
 
 
+#### Sensor Data Generator
+
+The DHT Logger uses data stream <b>ucw-dhtlogger</b> to read data for temperature, humidity 
+and heat index from DHTx sensors. Data can be generated when you enable generator in 
+<i>pom.xml</i> file by changing to following
+
+<code>\<jvmArgs\>-Ducw.dhtlogger.generator.enabled=true\</jvmArgs\></code> 
+
 [1]: https://unitycloudware.com
 [2]: https://docs.unitycloudware.com
 [3]: https://github.com/unitycloudware
