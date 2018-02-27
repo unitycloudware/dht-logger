@@ -12,27 +12,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
  * @see <a href="http://unitycloudware.com">Unity{Cloud}Ware</a>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SensorDataDHT {
-    private double temperature;
-    private double humidity;
+public class SensorDataDHT extends SensorData {
     private double heatIndex;
-    private long timestamp;
-
-    public double getTemperature() {
-        return temperature;
-    }
-
-    public void setTemperature(double temperature) {
-        this.temperature = temperature;
-    }
-
-    public double getHumidity() {
-        return humidity;
-    }
-
-    public void setHumidity(double humidity) {
-        this.humidity = humidity;
-    }
 
     public double getHeatIndex() {
         return heatIndex;
@@ -42,22 +23,11 @@ public class SensorDataDHT {
         this.heatIndex = heatIndex;
     }
 
-    public long getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
-
     @Override
     public String toString() {
         return "SensorDataDHT{" +
-                "temperature=" + temperature +
-                ", humidity=" + humidity +
-                ", heatIndex=" + heatIndex +
-                ", timestamp=" + timestamp +
-                '}';
+                "heatIndex=" + heatIndex +
+                "} " + super.toString();
     }
 
     public static SensorDataDHT create(
