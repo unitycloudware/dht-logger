@@ -17,7 +17,6 @@ public class SensorData {
     private double humidity;
     private long timestamp;
 
-
     public double getTemperature() {
         return temperature;
     }

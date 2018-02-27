@@ -10,7 +10,6 @@
         <th id="data-temperature">Temperature</th>
         <th id="data-heatindex">Heatindex</th>
         <th id="data-timestamp">Timestamp</th>
-
     </tr>
     </thead>
     <tbody>

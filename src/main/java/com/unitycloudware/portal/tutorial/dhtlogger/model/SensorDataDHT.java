@@ -6,13 +6,13 @@ package com.unitycloudware.portal.tutorial.dhtlogger.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * Sensor Data
+ * Sensor Data from DHTx sensor
  *
  * @author Tomas Hrdlicka <tomas@hrdlicka.co.uk>
  * @see <a href="http://unitycloudware.com">Unity{Cloud}Ware</a>
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SensorDataDht {
+public class SensorDataDHT {
     private double temperature;
     private double humidity;
     private double heatIndex;
@@ -42,7 +42,6 @@ public class SensorDataDht {
         this.heatIndex = heatIndex;
     }
 
-
     public long getTimestamp() {
         return timestamp;
     }
@@ -53,20 +52,26 @@ public class SensorDataDht {
 
     @Override
     public String toString() {
-        return "SensorDataDht{" +
-                ", humidity=" + humidity +
+        return "SensorDataDHT{" +
                 "temperature=" + temperature +
+                ", humidity=" + humidity +
                 ", heatIndex=" + heatIndex +
                 ", timestamp=" + timestamp +
                 '}';
     }
 
-    public static SensorDataDht create(final double humidity, final double temperature, final double heatIndex, final long timestamp) {
-        SensorDataDht sensorDataDht = new SensorDataDht();
-        sensorDataDht.setHumidity(humidity);
-        sensorDataDht.setTemperature(temperature);
-        sensorDataDht.setHeatIndex(heatIndex);
-        sensorDataDht.setTimestamp(timestamp);
-        return sensorDataDht;
+    public static SensorDataDHT create(
+            final double temperature,
+            final double humidity,
+            final double heatIndex,
+            final long timestamp) {
+
+        SensorDataDHT sensorDataDHT = new SensorDataDHT();
+        sensorDataDHT.setTemperature(temperature);
+        sensorDataDHT.setHumidity(humidity);
+        sensorDataDHT.setHeatIndex(heatIndex);
+        sensorDataDHT.setTimestamp(timestamp);
+
+        return sensorDataDHT;
     }
 }

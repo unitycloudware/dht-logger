@@ -70,6 +70,15 @@
         <view>ucw-dhtlogger</view>
     </dashboard-gadget>
 
+    <dashboard-gadget key="ucw-dhtlogger_logger-scheme-gadget" name="Logger Scheme Gadget"
+                      class="com.unitycloudware.portal.tutorial.dhtlogger.gadget.LoggerSchemeGadget">
+        <description>Displays DHT logger scheme.</description>
+        <label>DHT22 logger scheme</label>
+        <column>left</column>
+        <order>0</order>
+        <view>ucw-dhtlogger</view>
+    </dashboard-gadget>
+
     <dashboard-gadget key="ucw-dhtlogger_humidity-data-gadget" name="Humidity Data Gadget"
                       class="com.unitycloudware.portal.tutorial.dhtlogger.gadget.HumidityDataGadget">
         <description>Displays humidity data from DHTx sensors.</description>
@@ -79,20 +88,11 @@
         <view>ucw-dhtlogger</view>
     </dashboard-gadget>
 	
-	<dashboard-gadget key="ucw-dhtlogger_temp-humidity-data-gadget" name="Temperature and Humidity Data Gadget"
+	<dashboard-gadget key="ucw-dhtlogger_temperature-humidity-data-gadget" name="Temperature and Humidity Data Gadget"
                       class="com.unitycloudware.portal.tutorial.dhtlogger.gadget.TemperatureHumidityGadget">
-        <description>Displays humidity data from DHTx sensors.</description>
+        <description>Displays temperature and humidity data from DHTx sensors.</description>
         <label>Temperature and Humidity Measurement</label>
         <column>right</column>
-        <order>0</order>
-        <view>ucw-dhtlogger</view>
-    </dashboard-gadget>
-
-    <dashboard-gadget key="ucw-dhtlogger_logger-scheme-gadget" name="Logger Scheme Gadget"
-                      class="com.unitycloudware.portal.tutorial.dhtlogger.gadget.LoggerSchemeGadget">
-        <description>Displays DHT logger scheme.</description>
-        <label>DHT22 logger scheme</label>
-        <column>left</column>
         <order>0</order>
         <view>ucw-dhtlogger</view>
     </dashboard-gadget>

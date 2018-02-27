@@ -20,11 +20,11 @@ import com.unitycloudware.core.model.DataStreamType;
 import com.unitycloudware.core.service.DataManager;
 import com.unitycloudware.core.service.DeviceManager;
 
-import com.unitycloudware.portal.tutorial.dhtlogger.model.SensorDataDht;
+import com.unitycloudware.portal.tutorial.dhtlogger.model.SensorDataDHT;
 import com.unitycloudware.portal.tutorial.dhtlogger.util.TestDataUtils;
 
 /**
- * TemperatureHumidityGadget Data Gadget
+ * Temperature and Humidity Data Gadget
  *
  * @author Tomas Hrdlicka <tomas@hrdlicka.co.uk>
  * @see <a href="http://unitycloudware.com">Unity{Cloud}Ware</a>
@@ -62,8 +62,8 @@ public class TemperatureHumidityGadget extends AbstractGadget {
         return velocityParams;
     }
 
-    protected List<SensorDataDht> getData() {
-        List<SensorDataDht> data = new ArrayList<SensorDataDht>();
+    protected List<SensorDataDHT> getData() {
+        List<SensorDataDHT> data = new ArrayList<SensorDataDHT>();
 
         Device device = getDeviceManager().getDeviceByName(TestDataUtils.PROJECT_KEY, TestDataUtils.DEVICE_NAME);
 
@@ -77,8 +77,8 @@ public class TemperatureHumidityGadget extends AbstractGadget {
             return data;
         }
 
-        // Load 10 last records
-        List<DataStreamItem> items = getDataManager().loadStream(dataStream, device, 0, 10);
+        // Load 20 last records
+        List<DataStreamItem> items = getDataManager().loadStream(dataStream, device, 0, 20);
 
         if (items == null || items.isEmpty()) {
             return data;
@@ -93,14 +93,13 @@ public class TemperatureHumidityGadget extends AbstractGadget {
             DataMessage dataMessage = (DataMessage) item.getData();
 
             // Transform JSON payload to DataItem object
-            //data.add(JsonUtils.fromJson(dataMessage.getData(), SensorDataDht.class));
-            SensorDataDht sensorDataDht = JsonUtils.fromJson(dataMessage.getData(), SensorDataDht.class);
+            SensorDataDHT sensorDataDHT = JsonUtils.fromJson(dataMessage.getData(), SensorDataDHT.class);
 
-            if (sensorDataDht.getTimestamp() == 0) {
-                sensorDataDht.setTimestamp(dataMessage.getTimestamp());
+            if (sensorDataDHT.getTimestamp() == 0) {
+                sensorDataDHT.setTimestamp(dataMessage.getTimestamp());
             }
 
-            data.add(sensorDataDht);
+            data.add(sensorDataDHT);
         }
 
         return data;
