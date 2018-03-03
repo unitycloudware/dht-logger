@@ -16,7 +16,7 @@
         #foreach ($d in $data)
         <tr>
             <td headers="data-temperature"><span class="aui-lozenge aui-lozenge-current">$String.format("%.2f", $!{d.temperature})&deg;C</span></td>
-            <td headers=“data-humidity”><span class=“aui-lozenge aui-lozenge-current”>$String.format("%.2f", $!{d.humidity})%</span></td>
+            <td headers="data-humidity"><span class="aui-lozenge aui-lozenge-current">$String.format("%.2f", $!{d.humidity})%</span></td>
             <td headers="data-heatindex"><span class="aui-lozenge aui-lozenge-current">$String.format("%.2f", $!{d.heatIndex})&deg;C</span></td>
             <td headers="data-timestamp">$date.format("yyyy-MM-dd HH:mm:ss", $!{d.timestamp})</td>
         </tr>
